@@ -15,7 +15,8 @@ jobs:
           node-version: 16.14.2
           registry-url: https://npm.pkg.github.com
       - run: git tag v0.0.1
-      - run: git push origin v0.0.1
+      - run: git push v0.0.1
         env:
           GITHUB_TOKEN: ${{ github.token }}
+          branch: ${{ github.ref }}
 
