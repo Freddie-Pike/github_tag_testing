@@ -2,6 +2,20 @@ name: Release Package
 on: pull_request
 
 jobs:
+  get_package_json_version:
+    name: Check if updated
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+      - name: Get current version
+        run: echo "::set-output name=current_version::$(cat package.json | jq -r .version)"
+        id: current_version
+      - run: 'echo "Current: ${{steps.current_version.outputs.current_version}}"'
+    outputs:
+      current_package_json_version: ${{ steps.current_version.outputs.current_version }}
+
   release:
     name: Release package
     runs-on: ubuntu-latest
