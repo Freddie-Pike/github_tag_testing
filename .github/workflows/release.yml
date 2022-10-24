@@ -16,6 +16,6 @@ jobs:
           registry-url: https://npm.pkg.github.com
       - run: git tag v0.0.1
       - run: git push origin v0.0.1
-        with:
-            repo-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
 
