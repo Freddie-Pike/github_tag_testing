@@ -1,6 +1,6 @@
 {
   "name": "github_tag_testing",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Github tag testing with a Mathematical class",
   "scripts": {
     "test": "jest",
