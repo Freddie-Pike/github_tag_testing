@@ -32,9 +32,10 @@ jobs:
           node-version: 16.14.2
           registry-url: https://npm.pkg.github.com
       - run: git tag v${{ needs.check_update.outputs.current_package_json_version }}
-      - run: git push origin v${{ needs.check_update.outputs.current_package_json_version }}
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-          ACCESS_TOKEN: ${{ secrets.PERSONAL_TAG_REPO }}
-          branch: ${{ github.ref }}
+      - uses: ncipollo/release-action@v1
+        with:
+          commit: ${{ github.sha }}
+          token: ${{ github.token }}
+          name: v${{ needs.check_update.outputs.current_package_json_version }}
+          tag: v${{ needs.check_update.outputs.current_package_json_version }}
 
