@@ -20,9 +20,7 @@ jobs:
     name: Release package
     runs-on: ubuntu-latest
     needs: get_package_json_version
-    permissions:
-      packages: write
-      contents: read
+    permissions: write-all
     steps:
       - uses: actions/checkout@v2
         with:
