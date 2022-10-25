@@ -30,7 +30,7 @@ jobs:
           node-version: 16.14.2
           registry-url: https://npm.pkg.github.com
       - run: touch body.md
-      - run: echo ${{ github.event.pull_request.title }} >> body.md
+      - run: echo ${{ github.event.pull_request.description }} >> body.md
       - run: git tag v${{ needs.get_package_json_version.outputs.current_package_json_version }}
       - uses: ncipollo/release-action@v1
         with:
