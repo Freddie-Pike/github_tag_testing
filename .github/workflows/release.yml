@@ -36,5 +36,4 @@ jobs:
           token: ${{ github.token }}
           name: v${{ needs.get_package_json_version.outputs.current_package_json_version }}
           tag: v${{ needs.get_package_json_version.outputs.current_package_json_version }}
-          # ${{ PERSONAL_TAG_REPO }}
 
