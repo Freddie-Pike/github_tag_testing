@@ -35,5 +35,6 @@ jobs:
       - run: git push origin v${{ needs.check_update.outputs.current_package_json_version }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
+          ACCESS_TOKEN: ${{ secrets.PERSONAL_TAG_REPO }}
           branch: ${{ github.ref }}
 
